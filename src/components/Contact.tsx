@@ -30,15 +30,46 @@ export const Contact: React.FC = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-    
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 4000);
-  };
+  e.preventDefault();
+
+  if (
+    !formData.name.trim() ||
+    !formData.email.trim() ||
+    !formData.subject.trim() ||
+    !formData.message.trim()
+  ) {
+    return;
+  }
+
+  const whatsappMessage = `*New Contact Form Message*
+
+👤 *Name:* ${formData.name}
+
+📧 *Email:* ${formData.email}
+
+📌 *Subject:* ${formData.subject}
+
+💬 *Message:*
+${formData.message}`;
+
+  const whatsappURL = `https://wa.me/94760771993?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
+
+  window.open(whatsappURL, "_blank");
+
+  setSubmitted(true);
+
+  setTimeout(() => {
+    setSubmitted(false);
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  }, 3000);
+};
 
   const copyToClipboard = (text: string, type: 'email' | 'phone') => {
     navigator.clipboard.writeText(text);
@@ -147,34 +178,7 @@ export const Contact: React.FC = () => {
                 </button>
               </div>
 
-              {/* WhatsApp Card */}
-              <div className="p-5 rounded-[2rem] bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between hover:border-emerald-500 hover:bg-white transition-all duration-200 group">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs">
-                    <MessageSquare className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-mono font-bold text-[#94A3B8] uppercase tracking-widest">WhatsApp / Phone</p>
-                    <a 
-                      href="https://wa.me/94760771993"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-bold text-[#0F172A] hover:text-emerald-600 transition-colors"
-                    >
-                      {personalInfo.phone}
-                    </a>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => copyToClipboard(personalInfo.phone, 'phone')}
-                  className="p-2.5 rounded-full bg-white border border-[#E2E8F0] text-[#64748B] hover:text-emerald-600 hover:border-emerald-500 transition-colors cursor-pointer shadow-2xs"
-                  title="Copy phone number"
-                  aria-label="Copy Phone"
-                >
-                  {copiedPhone ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-                </button>
-              </div>
+              
 
               {/* Location Card */}
               <div className="p-5 rounded-[2rem] bg-[#F8FAFC] border border-[#E2E8F0] flex items-center gap-4">
@@ -292,10 +296,10 @@ export const Contact: React.FC = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-6 rounded-full bg-[#0F172A] hover:bg-black text-white font-bold text-xs flex items-center justify-center gap-2 shadow-2xs transition-all duration-300 cursor-pointer"
+                  className="w-full py-3.5 px-6 rounded-full bg-[#0F172A] hover:bg-black text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all duration-300 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
                 >
                   <Send className="w-4 h-4 text-[#2563EB]" />
-                  <span>Send Message</span>
+                  <span>Send via WhatsApp</span>
                 </button>
 
               </form>

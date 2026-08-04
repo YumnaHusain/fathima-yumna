@@ -194,7 +194,7 @@ export const projectsData: Project[] = [
       label: "Response Speed",
       value: "<100ms"
     },
-    githubUrl: "https://github.com/yumnahusain/mobile-pos-system"
+    githubUrl: "https://github.com/YumnaHusain/mobile-pos-system"
   },
   {
     id: "cosmetics-ecommerce",
@@ -217,7 +217,7 @@ export const projectsData: Project[] = [
       label: "Admin Controls",
       value: "Full CRUD"
     },
-    githubUrl: "https://github.com/yumnahusain/cosmetics-ecommerce"
+    githubUrl: "https://pureorganics.vercel.app/"
   },
   {
     id: "library-system",

@@ -48,13 +48,7 @@ export const Footer: React.FC = () => {
               </a>
             </div>
 
-            <div className="flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-emerald-400" />
-              <span className="text-[#64748B] text-xs">WhatsApp:</span>
-              <a href="https://wa.me/94760771993" target="_blank" rel="noopener noreferrer" className="text-white hover:text-emerald-400 transition-colors font-medium text-xs">
-                {personalInfo.phone}
-              </a>
-            </div>
+            
 
             <p className="text-[#64748B] text-xs mt-2">
               Location: <span className="text-white font-medium">{personalInfo.location}</span>

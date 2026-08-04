@@ -122,42 +122,57 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterModal }) => {
             className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6"
           >
             {/* Card 1: Education Dark Bento Block */}
-            <div className="bg-[#0F172A] p-6 rounded-[2rem] text-white flex flex-col justify-between shadow-xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-xl pointer-events-none"></div>
+<div
+  className="relative overflow-hidden rounded-[2rem] p-6 text-white flex flex-col justify-between shadow-xl group bg-cover bg-center bg-no-repeat min-h-[420px]"
+  style={{
+    backgroundImage: "url('/images/yumna.png')",
+  }}
+>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/55"></div>
 
-              <div className="flex items-start justify-between mb-6">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#64748B]">
-                  Education & Degree
-                </span>
-                <div className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-[#2563EB]">
-                  <GraduationCap className="w-5 h-5" />
-                </div>
-              </div>
+  {/* Blue Glow */}
+  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-xl pointer-events-none z-10"></div>
 
-              <div>
-                <span className="px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30 inline-block mb-3">
-                  GRADUATE 2026
-                </span>
-                <h3 className="text-2xl font-extrabold tracking-tight mb-1 text-white">
-                  HND in IT
-                </h3>
-                <p className="text-xs text-[#94A3B8] font-medium">
-                  SLIATE - ATI Anuradhapura
-                </p>
+  {/* Content */}
+  <div className="relative z-20 flex items-start justify-between mb-6">
+    <span className="text-[10px] font-bold uppercase tracking-widest text-gray-300">
+      Education & Degree
+    </span>
 
-                <div className="flex flex-wrap gap-1.5 mt-5">
-                  <span className="text-[9px] font-mono border border-[#334155] text-slate-300 px-2.5 py-1 rounded-full bg-slate-800/50">
-                    MySQL & SQL
-                  </span>
-                  <span className="text-[9px] font-mono border border-[#334155] text-slate-300 px-2.5 py-1 rounded-full bg-slate-800/50">
-                    Python & Flask
-                  </span>
-                  <span className="text-[9px] font-mono border border-[#334155] text-slate-300 px-2.5 py-1 rounded-full bg-slate-800/50">
-                    PHP & Web
-                  </span>
-                </div>
-              </div>
-            </div>
+    <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-blue-400">
+      <GraduationCap className="w-5 h-5" />
+    </div>
+  </div>
+
+  <div className="relative z-20">
+    <span className="px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30 inline-block mb-3">
+      GRADUATE 2026
+    </span>
+
+    <h3 className="text-3xl font-extrabold tracking-tight mb-2">
+      HND in IT
+    </h3>
+
+    <p className="text-sm text-gray-200 font-medium">
+      SLIATE - ATI Anuradhapura
+    </p>
+
+    <div className="flex flex-wrap gap-2 mt-5">
+      <span className="text-[9px] font-mono border border-white/20 text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+        MySQL & SQL
+      </span>
+
+      <span className="text-[9px] font-mono border border-white/20 text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+        Python & Flask
+      </span>
+
+      <span className="text-[9px] font-mono border border-white/20 text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+        PHP & Web
+      </span>
+    </div>
+  </div>
+</div>
 
             {/* Card 2: Featured Project Bento Block */}
             <div 
